@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>firebaseconfig.js</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #7a7e85;}
+.ln { color: #4b5059; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+firebaseconfig.js</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">import </span><span class="s2">{ </span><span class="s1">initializeApp </span><span class="s2">} </span><span class="s1">from </span><span class="s3">'https://www.gstatic.com/firebasejs/9.1.1/firebase-app.js'</span><span class="s2">;</span>
+<a name="l2"><span class="ln">2    </span></a><span class="s0">import </span><span class="s2">{ </span><span class="s1">getDatabase</span><span class="s2">, </span><span class="s1">ref</span><span class="s2">, </span><span class="s1">push</span><span class="s2">, </span><span class="s1">onChildAdded </span><span class="s2">} </span><span class="s1">from </span><span class="s3">'https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js'</span><span class="s2">;</span>
+<a name="l3"><span class="ln">3    </span></a><span class="s0">import </span><span class="s2">{ </span><span class="s1">getAuth</span><span class="s2">, </span><span class="s1">createUserWithEmailAndPassword</span><span class="s2">, </span><span class="s1">signInWithEmailAndPassword</span><span class="s2">, </span><span class="s1">onAuthStateChanged </span><span class="s2">} </span><span class="s1">from </span><span class="s3">'https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js'</span><span class="s2">;</span>
+<a name="l4"><span class="ln">4    </span></a>
+<a name="l5"><span class="ln">5    </span></a><span class="s4">// For Firebase JS SDK v7.20.0 and later, measurementId is optional</span>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">const </span><span class="s1">firebaseConfig </span><span class="s2">= {</span>
+<a name="l7"><span class="ln">7    </span></a>    <span class="s1">apiKey</span><span class="s2">: </span><span class="s3">&quot;AIzaSyCOZNjb_mvvpkU4TSTZu8Z25zwhlbbh8kE&quot;</span><span class="s2">,</span>
+<a name="l8"><span class="ln">8    </span></a>    <span class="s1">authDomain</span><span class="s2">: </span><span class="s3">&quot;serviceswapr-6ca02.firebaseapp.com&quot;</span><span class="s2">,</span>
+<a name="l9"><span class="ln">9    </span></a>    <span class="s1">projectId</span><span class="s2">: </span><span class="s3">&quot;serviceswapr-6ca02&quot;</span><span class="s2">,</span>
+<a name="l10"><span class="ln">10   </span></a>    <span class="s1">storageBucket</span><span class="s2">: </span><span class="s3">&quot;serviceswapr-6ca02.appspot.com&quot;</span><span class="s2">,</span>
+<a name="l11"><span class="ln">11   </span></a>    <span class="s1">messagingSenderId</span><span class="s2">: </span><span class="s3">&quot;394168413508&quot;</span><span class="s2">,</span>
+<a name="l12"><span class="ln">12   </span></a>    <span class="s1">appId</span><span class="s2">: </span><span class="s3">&quot;1:394168413508:web:248fdbac9360857158fb11&quot;</span><span class="s2">,</span>
+<a name="l13"><span class="ln">13   </span></a>    <span class="s1">measurementId</span><span class="s2">: </span><span class="s3">&quot;G-HVZ78S602P&quot;</span><span class="s2">,</span>
+<a name="l14"><span class="ln">14   </span></a>    <span class="s1">databaseURL</span><span class="s2">: </span><span class="s3">&quot;https://serviceswapr-6ca02-default-rtdb.firebaseio.com&quot;</span>
+<a name="l15"><span class="ln">15   </span></a><span class="s2">};</span>
+<a name="l16"><span class="ln">16   </span></a>
+<a name="l17"><span class="ln">17   </span></a><span class="s0">const </span><span class="s1">app </span><span class="s2">= </span><span class="s1">initializeApp</span><span class="s2">(</span><span class="s1">firebaseConfig</span><span class="s2">);</span>
+<a name="l18"><span class="ln">18   </span></a><span class="s0">const </span><span class="s1">auth </span><span class="s2">= </span><span class="s1">getAuth</span><span class="s2">(</span><span class="s1">app</span><span class="s2">);</span>
+<a name="l19"><span class="ln">19   </span></a><span class="s0">const </span><span class="s1">database </span><span class="s2">= </span><span class="s1">getDatabase</span><span class="s2">(</span><span class="s1">app</span><span class="s2">);</span>
+<a name="l20"><span class="ln">20   </span></a>
+<a name="l21"><span class="ln">21   </span></a><span class="s0">export </span><span class="s2">{ </span><span class="s1">auth</span><span class="s2">, </span><span class="s1">createUserWithEmailAndPassword</span><span class="s2">, </span><span class="s1">signInWithEmailAndPassword</span><span class="s2">, </span><span class="s1">database</span><span class="s2">, </span><span class="s1">ref</span><span class="s2">, </span><span class="s1">push</span><span class="s2">, </span><span class="s1">onChildAdded</span><span class="s2">, </span><span class="s1">onAuthStateChanged </span><span class="s2">};</span>
+<a name="l22"><span class="ln">22   </span></a></pre>
+</body>
+</html>
